@@ -6,4 +6,4 @@ function InputButton(){
     return <Button color="primary">Hello World</Button>;
 
 }
-export default InputButton
+export default Input
