@@ -2,8 +2,10 @@
 import './App.css';
 import {useState} from 'react';
 import Button from '@material-ui/core/Button';
+import FormControl from '@material-ui/core/FormControl';
 import React from 'react';
-
+import { Input, InputLabel,FormHelperText } from '@material-ui/core';
+import Message from './Message'
 
 
 function App() {
@@ -20,9 +22,15 @@ function App() {
      <div className="App">
        <h1>Hello World</h1>
       <form action="">
-        <input value={input} onChange ={event=>setInput(event.target.value)} type="text"/> 
+        <FormControl>
+          <InputLabel >Enter a message...</InputLabel>
+          <Input value={input} onChange ={event=>setInput(event.target.value)} type="text" />
+          <FormHelperText ></FormHelperText>
+          <Button varient="contained" color="secondary" disabled ={!input}  type="submit" onClick ={sendMessage}>Send Message</Button>
+        </FormControl>
+        
 
-       <button disabled ={!input}  type="submit" onClick ={sendMessage}>Send Message</button>
+       
        
 
 
@@ -32,7 +40,7 @@ function App() {
 
       {
         messages.map(message=>(
-          <p>{message}</p>
+          <Message text = {message}/>
         ))
       } 
 
